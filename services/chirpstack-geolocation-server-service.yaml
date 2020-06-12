@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: chirpstack-geolocation-server
+  name: chirpstack-geolocation-server
+spec:
+  ports:
+  - name: "8005"
+    port: 8005
+    targetPort: 8005
+  selector:
+    io.kompose.service: chirpstack-geolocation-server
+status:
+  loadBalancer: {}

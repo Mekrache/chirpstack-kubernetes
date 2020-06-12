@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: chirpstack-application-server
+  name: chirpstack-application-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: chirpstack-application-server
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: chirpstack-application-server
+    spec:
+      containers:
+      - image: chirpstack/chirpstack-application-server:3
+        imagePullPolicy: ""
+        name: chirpstack-application-server
+        ports:
+        - containerPort: 8001
+        - containerPort: 8003
+        - containerPort: 8080
+        volumeMounts:
+          - name: config-application-server-cm
+            mountPath: /etc/chirpstack-application-server
+
+            
+      restartPolicy: Always
+      volumes:
+          - name: config-application-server-cm
+            configMap:
+                name: config-application-server

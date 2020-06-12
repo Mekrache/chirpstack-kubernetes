@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: chirpstack-gateway-bridge
+  name: chirpstack-gateway-bridge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: chirpstack-gateway-bridge
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: chirpstack-gateway-bridge
+    spec:
+      containers:
+      - image: chirpstack/chirpstack-gateway-bridge:3
+        imagePullPolicy: ""
+        name: chirpstack-gateway-bridge
+        ports:
+        - containerPort: 1700
+          protocol: UDP
+        volumeMounts:
+          - name: config-gateway-bridge-cm
+            mountPath: /etc/chirpstack-gateway-bridge
+          
+      restartPolicy: Always
+    
+      volumes:
+          - name: config-gateway-bridge-cm
+            configMap:
+                name: config-gateway-bridge

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-geolocation-server
+data:
+  chirpstack-geolocation-server.toml: |
+    [geo_server.backend]
+    name="collos"
+
+    [geo_server.backend.collos]
+    subscription_key=""
+

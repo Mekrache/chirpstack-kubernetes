@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: postgresql
+  name: postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: postgresql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: postgresql
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_HOST_AUTH_METHOD
+          value: trust
+        image: postgres:alpine
+        imagePullPolicy: ""
+        name: postgresql
+        ports:
+        - containerPort: 5432
+        resources: {}
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgresqldata
+  
+          - mountPath: /docker-entrypoint-initdb.d
+            name: config-postgres-cm
+  
+      restartPolicy: Always
+        
+      serviceAccountName: ""
+        
+      volumes:
+      - name: postgresqldata
+        persistentVolumeClaim:
+          claimName: postgresqldata
+  
+      - name: config-postgres-cm
+        configMap:
+            name: config-postgres
+  

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: chirpstack-gateway-bridge
+  name: chirpstack-gateway-bridge
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "1701"
+    port: 1701
+    protocol: UDP
+    targetPort: 1700
+    nodePort: 30002
+  selector:
+    io.kompose.service: chirpstack-gateway-bridge
+status:
+  loadBalancer: {}
