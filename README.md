@@ -28,7 +28,7 @@ $ ./deploy.sh
 
 you can always see the state of your pods :
 ```bash
-$ watch kubernetes get all 
+$ watch kubectl get all 
 ```
 
 After all the components have been initialized and started, you should be able
