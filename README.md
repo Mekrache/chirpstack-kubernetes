@@ -11,13 +11,27 @@ This repository contains a skeleton to deploy the [ChirpStack](https://www.chirp
 - `deploy.sh` : script to deploy the Chirpstack Netwrok Server stack on kubernetes using the default namespace
 - `docker-compose.yml` : the docker-compose file containing the services which we used to create kubernetes config files with Kompose
 
-# Data persistence
+## Data persistence
+PostgreSQL and Redis data is persisted in kubernetes PersistentClaimVolumes, see the config files on the `volumes`
+folder .
 
 ## Requirements
 Before running this `deploy.sh` script file, make sure you have Kubernetes cluster installed
 
-For users looking to try out chirpstack-kubernetes or just to test, you can install [minikube](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/) which runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop
+For users looking to test chirpstack-kubernetes , you can install [minikube](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/) which runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop
 
 ## Usage
+To deploy and start the ChirpStack open-source LoRaWAN Network Server stack, simply run:
+```bash
+$ ./deploy.sh
+```
+
+you can always see the state of your pods :
+```bash
+$ watch kubernetes get all 
+```
+
+After all the components have been initialized and started, you should be able
+to open http://localhost:8080/ in your browser.
 
 ### Add Network Server
