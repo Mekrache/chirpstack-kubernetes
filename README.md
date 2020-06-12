@@ -15,7 +15,8 @@ This repository contains a skeleton to deploy the [ChirpStack](https://www.chirp
 
 ## Requirements
 Before running this `deploy.sh` script file, make sure you have Kubernetes cluster installed
-for users looking to try out chirpstack-kubernetes or just to test, you can install [minikube](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/) which runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop
+
+For users looking to try out chirpstack-kubernetes or just to test, you can install [minikube](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/) which runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop
 
 ## Usage
 
