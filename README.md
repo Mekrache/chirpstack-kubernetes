@@ -9,4 +9,14 @@ This repository contains a skeleton to deploy the [ChirpStack](https://www.chirp
 - `services` : directory containig kubernetes services files
 - `volumes` : directory containing the PersistentVolumeClaim files for [postgresql](https://www.postgresql.org/) and [redis](https://redis.io/) databases 
 - `deploy.sh` : script to deploy the Chirpstack Netwrok Server stack on kubernetes using the default namespace
-- `docker-compose.yml` : the docker-compose file containing the services which we used to create kubernetes config files
+- `docker-compose.yml` : the docker-compose file containing the services which we used to create kubernetes config files with Kompose
+
+# Data persistence
+
+## Requirements
+Before running this `deploy.sh` script file, make sure you have Kubernetes cluster installed
+for users looking to try out chirpstack-kubernetes or just to test, you can install [minikube](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/) which runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop
+
+## Usage
+
+### Add Network Server
