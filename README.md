@@ -7,6 +7,6 @@ This repository contains a skeleton to deploy the [ChirpStack](https://www.chirp
 - `config-maps` : directory containing kubernetes config-maps which are used to configure the ChirpStack Network Server stack
 - `deployments` : directory containing kubernetes deployements files 
 - `services` : directory containig kubernetes services files
-- `volumes` : directory containing the PersistentVolumeClaim files for postgresql and redis databases 
+- `volumes` : directory containing the PersistentVolumeClaim files for [postgresql](https://www.postgresql.org/) and [redis](https://redis.io/) databases 
 - `deploy.sh` : script to deploy the Chirpstack Netwrok Server stack on kubernetes using the default namespace
 - `docker-compose.yml` : the docker-compose file containing the services which we used to create kubernetes config files
