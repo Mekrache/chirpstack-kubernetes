@@ -43,6 +43,11 @@ $ minikube service chirpstack-application-server --url
 if you are using minikube and you want to access the application server with https://localhost:8080 
 you must configure the port forwarding on the minikube VM, below an example of the configuration :
 
+| Name  | Protocol | Host IP | Host Port | Guest Ip | Guest Port |
+| ------------- | ------------- |
+| chirpstack-application-server  | TCP  | 0.0.0.0 | 8080 | @ip_minikube_VM | 30001 |
+| chirpstack-gateway-bridge  | UDP  | 0.0.0.0 | 1700 | @ip_minikube_VM | 30002 |
+
 
 
 ### Add Network Server
