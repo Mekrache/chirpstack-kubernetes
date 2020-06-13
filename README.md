@@ -32,7 +32,7 @@ $ watch kubectl get all
 ```
 
 After all the components have been initialized and started, you should be able
-to open the chirpstack application server in your browser
+to open the Chirpstack Application Server web-interface in your browser
 
 
 if you are using minikube, you can get the ip address and the port with the command :
@@ -40,7 +40,7 @@ if you are using minikube, you can get the ip address and the port with the comm
 $ minikube service chirpstack-application-server --url
 ```
 
-if you are using minikube and you want to access the application server with https://localhost:8080 
+if you are using minikube and you want to access the Chirpstack Application Server web-interface with https://localhost:8080 
 you must configure the port forwarding on the minikube VM, below an example of the configuration :
 
 | Name  | Protocol | Host IP | Host Port | Guest Ip | Guest Port |
@@ -51,3 +51,7 @@ you must configure the port forwarding on the minikube VM, below an example of t
 
 
 ### Add Network Server
+
+When adding the Network Server in the ChirpStack Application Server web-interface
+(see [Network Servers](https://www.chirpstack.io/application-server/use/network-servers/)),
+you must enter `chirpstack-network-server:8000` as the Network Server `hostname:IP`.
